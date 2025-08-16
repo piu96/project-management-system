@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Logs and temp files
+*.log
+.log/
+.tmp/
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+.sublime/
+
+# User-specific files
+.npmrc
+.yarnrc
+
+# Build artifacts
+build/
+dist/
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+
+# Coverage reports
+coverage/
+
+# Dependency caches
+.npm/
+.yarn-cache/
