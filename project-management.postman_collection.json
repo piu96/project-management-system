@@ -1,0 +1,1247 @@
+{
+	"info": {
+		"_postman_id": "e5aaf422-6294-4a2e-aa1e-4e23fe3625fc",
+		"name": "project-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22909539",
+		"_collection_link": "https://warped-desert-43013.postman.co/workspace/Notebrains~03c7a21b-71b7-4848-a8ef-9ac77bded2eb/collection/22909539-e5aaf422-6294-4a2e-aa1e-4e23fe3625fc?action=share&source=collection_link&creator=22909539"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"Test@123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/auth/login",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example1.com\", \r\n  \"password\": \"Test@123456\",\r\n  \"confirmPassword\": \"Test@123456\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/auth/register",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "workspace",
+			"item": [
+				{
+					"name": "Create Workspace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Acme Corp\",\r\n  \"description\": \"Workspace for Acme Corporation projects\",\r\n  \"plan\": \"free\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Workplace list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces?page=1",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Workspace Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces/:workspaceId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces",
+								":workspaceId"
+							],
+							"variable": [
+								{
+									"key": "workspaceId",
+									"value": "68a0b6e4fde4bb2543420b83"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Workspace",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"New Workspace Name\",\r\n  \"description\": \"Updated description\",\r\n  \"plan\": \"premium\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces/:workspaceId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces",
+								":workspaceId"
+							],
+							"variable": [
+								{
+									"key": "workspaceId",
+									"value": "68a0b6e4fde4bb2543420b83"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Workspace members",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces/68a0b6e4fde4bb2543420b83/members",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces",
+								"68a0b6e4fde4bb2543420b83",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invite user in workspace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role\": \"team_member\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces/68a0b6e4fde4bb2543420b83/invite",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces",
+								"68a0b6e4fde4bb2543420b83",
+								"invite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Invitation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/workspaces/join/4343fc09899c8961c90c1a636e6b93b01e7b98164fc559740438823a3766da5c",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"workspaces",
+								"join",
+								"4343fc09899c8961c90c1a636e6b93b01e7b98164fc559740438823a3766da5c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"workspaceId\": \"68a0b6e4fde4bb2543420b83\",\r\n    \"name\": \"Full Featured Project\",\r\n    \"description\": \"Complete project with all features\",\r\n    \"status\": \"active\",\r\n    \"priority\": \"high\",\r\n    \"startDate\": \"2025-08-16\",\r\n    \"endDate\": \"2025-12-31\",\r\n    \"tags\": [\r\n        \"web\",\r\n        \"mobile\",\r\n        \"api\"\r\n    ],\r\n    \"budget\": {\r\n        \"allocated\": 50000,\r\n        \"spent\": 15000,\r\n        \"currency\": \"USD\"\r\n    },\r\n    \"client\": {\r\n        \"name\": \"John Doe\",\r\n        \"email\": \"john@company.com\",\r\n        \"company\": \"Tech Corp\"\r\n    },\r\n    \"settings\": {\r\n        \"isPublic\": false,\r\n        \"allowTimeTracking\": true,\r\n        \"requireTaskApproval\": true,\r\n        \"notifyOnTaskComplete\": true\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project list of workspace",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects/workspace/:workspaceId ",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects",
+								"workspace",
+								":workspaceId "
+							],
+							"variable": [
+								{
+									"key": "workspaceId ",
+									"value": "68a0b6e4fde4bb2543420b83"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects/:projectId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects",
+								":projectId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Full Featured Project1\",\r\n    \"description\": \"Complete project with all features\",\r\n    \"status\": \"active\",\r\n    \"priority\": \"high\",\r\n    \"startDate\": \"2025-08-16\",\r\n    \"endDate\": \"2025-12-31\",\r\n    \"tags\": [\r\n        \"web\",\r\n        \"mobile\",\r\n        \"api\"\r\n    ],\r\n    \"budget\": {\r\n        \"allocated\": 50000,\r\n        \"spent\": 15000,\r\n        \"currency\": \"USD\"\r\n    },\r\n    \"client\": {\r\n        \"name\": \"John Doe\",\r\n        \"email\": \"john@company.com\",\r\n        \"company\": \"Tech Corp\"\r\n    },\r\n    \"settings\": {\r\n        \"isPublic\": false,\r\n        \"allowTimeTracking\": true,\r\n        \"requireTaskApproval\": true,\r\n        \"notifyOnTaskComplete\": true\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects/:projectId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects",
+								":projectId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects/:projectId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects",
+								":projectId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Member Management",
+			"item": [
+				{
+					"name": "Invite Member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"68a0b7c0fde4bb2543420b9d\",\r\n  \"role\": \"developer\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects/:projectId/members",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects",
+								":projectId",
+								"members"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Member",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/projects/:projectId/members/:userId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"projects",
+								":projectId",
+								"members",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								},
+								{
+									"key": "userId",
+									"value": "68a0b7c0fde4bb2543420b9d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Add Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectId\": \"68a0c3f2cdc42358d3629030\",\r\n  \"title\": \"Implement user authentication\",\r\n  \"description\": \"Add JWT-based authentication system\",\r\n  \"status\": \"todo\",\r\n  \"priority\": \"high\",\r\n  \"type\": \"feature\",\r\n  \"assignee\": \"68a0b7c0fde4bb2543420b9d\",\r\n  \"dueDate\": \"2025-08-25T10:00:00Z\",\r\n  \"estimatedHours\": 8,\r\n  \"tags\": [\"authentication\", \"security\"],\r\n  \"labels\": [\r\n    {\r\n      \"name\": \"Frontend\",\r\n      \"color\": \"#3b82f6\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "priority",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "assignee",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "reporter",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "dueDateFrom",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "dueDateTo",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d59e7391f66cd41facb7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated task title\",\r\n  \"status\": \"in_progress\",\r\n  \"progress\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d59e7391f66cd41facb7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0cfc7c71864570518df49"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Project Task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/project/:projectId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								"project",
+								":projectId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/user/my-tasks",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								"user",
+								"my-tasks"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "assignedToMe",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "reportedByMe",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "watchedByMe",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "todo",
+									"description": "todo,in_progress",
+									"disabled": true
+								},
+								{
+									"key": "priority",
+									"value": "high",
+									"description": "high,critical",
+									"disabled": true
+								},
+								{
+									"key": "overdue",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"in_progress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId/status",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d26bc71864570518df80"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Task",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"assignee\": \"68a0b7c0fde4bb2543420b9d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId/assign",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId",
+								"assign"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d26bc71864570518df80"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add time entry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hours\": 2.5,\r\n  \"description\": \"Implemented login functionality\",\r\n  \"date\": \"2025-08-17T14:30:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId/time",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId",
+								"time"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d26bc71864570518df80"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"Task is ready for review\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId/comments",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d26bc71864570518df80"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Watcher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"68a0b7c0fde4bb2543420b9d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId/watchers",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId",
+								"watchers"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d26bc71864570518df80"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Watcher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/:taskId/watchers/:watcherUserId",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								":taskId",
+								"watchers",
+								":watcherUserId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "68a0d26bc71864570518df80"
+								},
+								{
+									"key": "watcherUserId",
+									"value": "68a0b7c0fde4bb2543420b9d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task Statistics",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/app/tasks/project/:projectId/stats",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"app",
+								"tasks",
+								"project",
+								":projectId",
+								"stats"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": "68a0c3f2cdc42358d3629030"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{x-access-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000/",
+			"type": "string"
+		},
+		{
+			"key": "x-access-token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YTA5YmY1ZGE1MjFhMGFmMTAyYTc0MiIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsImF1dGhUb2tlbiI6IjYyNmM0ODI2MjY2N2MxYTVkMzU5NGRjMmI4Y2ZjOTExNWYyODRmOGNhZDNkN2RhMjA1MGY3ZTQwMWJjMmU3ZDkiLCJpYXQiOjE3NTUzNjU5NDcsImV4cCI6MTc1NTk3MDc0N30.TO60PCnJ-8if5LQZT0RVUrBfIwd1hw5joOQNpzaRm-0",
+			"type": "string"
+		}
+	]
+}
