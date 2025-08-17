@@ -789,15 +789,89 @@ FILE_UPLOAD_PATH=./uploads
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+This project was created as part of a Final Evaluation Assignment to demonstrate technical skills and system architecture capabilities. While contributions are welcome, please note this is primarily a showcase project.
+
+### Development Setup
+
+1. **Fork the repository**
+   ```bash
+   git clone https://github.com/your-username/project-management-system.git
+   cd project-management-system
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment**
+   ```bash
+   cp .env.example .env
+   # Configure your environment variables
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+### Contribution Guidelines
+
+1. **Fork the repository** and create your feature branch
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+
+2. **Follow coding standards**
+   - Use consistent naming conventions
+   - Add comments for complex business logic
+   - Follow existing code structure and patterns
+
+3. **Write tests** for new functionality
+   ```bash
+   npm test
+   ```
+
+4. **Commit your changes** with descriptive messages
+   ```bash
+   git commit -m 'feat: Add amazing feature for user experience'
+   ```
+
+5. **Push to your branch** and create a Pull Request
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+
+### Pull Request Process
+
+- Ensure your code follows existing patterns and conventions
+- Update documentation for any new features
+
+### Code Style
+
+This project follows these conventions:
+- **ES6+** syntax with async/await
+- **Modular architecture** with separation of concerns
+- **RESTful API** design principles
+- **Express.js** best practices
+- **MongoDB** query optimization
+
+### Reporting Issues
+
+If you find bugs or have feature suggestions:
+1. Check existing issues first
+2. Create detailed bug reports with steps to reproduce
+3. Include relevant error messages and system information
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+## Acknowledgments
+
+- **Created by:** Sutrishna for Final Evaluation Assignment
+- **Purpose:** Technical skill demonstration and system architecture showcase
+- **Architecture:** Multi-tenant SaaS with advanced analytics capabilities
 
 ---
 
